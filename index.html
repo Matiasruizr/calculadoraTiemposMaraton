@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="calculadora">
+        <h2>¡Calcula tu distancia, tiempo o ritmo! <img src="http://www.virun.cl/wp-content/uploads/2016/01/LogoViRun_600x300.png"></h2>
+        <div class="categoria">
+            <h3>Distancia</h3>
+            <div class="white_box">
+                
+                <div class=""></div>
+                <div class="form-group" id="distancia_r">	
+                    <div class="center-inline-block">
+                        	
+                        <div class="form-control">			                           
+                            <input name="km_r_d" class="form-control" maxlength="2" id="km_r_d" placeholder="00" type="text">
+                            <span class="txt">Kilometros</span>
+                        </div>
+                        <div class="form-control">	
+                            <input name="mm_r_d" class="form-control" maxlength="3" id="mm_r_d" placeholder="00" type="text">
+                            <span class="txt">Metros</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="categoria">
+            <h3>Tiempo</h3>
+            <div class="form-group" id="tiempo_r">	
+                <div class="center-inline-block">
+                    <div class="form-control">	                           
+                        <input class="hrt" name="horas_r_t" maxlength="2" id="horas_r_t" placeholder="00" type="text">
+                        <span class="txt">Horas</span>
+                    </div>
+                    
+                    <div class="form-control">			                           
+                        <input class="mrt" name="minutos_r_t" maxlength="2" id="minutos_r_t" placeholder="00" type="text">
+                        <span class="txt">Minutos</span>
+                    </div>
+                    
+                    <div class="form-control">	
+                        <input class="srt" name="segundos_r_t" maxlength="2" id="segundos_r_t" placeholder="00" type="text">
+                        <span class="txt">Segundos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="categoria">
+            <h3>Ritmo</h3>
+            <div class="form-group" id="ritmo_r">	
+                <div class="center-inline-block">
+                    <div class="form-control">			                           
+                        <input class="mrt" name="minutos_vel" maxlength="2" id="minutos_vel" placeholder="00" type="text">
+                        <span class="txt">Minutos</span>
+                    </div>
+                    <div class="form-control">	
+                        <input class="srt" name="segundos_vel" maxlength="2" id="segundos_vel" placeholder="00" type="text">
+                        <span class="txt">Segundos</span>
+                        <span><small>(por kilometro)</small></span>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <button id="calcular">Calcular </button>
+    </div>
+  
+    <script src="calculadora.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+.calculadora{
+    font-family: Roboto,Arial,Helvetica,sans-serif;
+}
+.calculadora h2 img{
+    max-width: 120px;
+    margin-left: 25px;
+}
+.calculadora h2{
+    text-align: center;
+    font-size: 36px;
+    font-weight: 400;
+    color: #58585a;
+}
+.calculadora h3{
+    background: #9f1f63;
+    color: white;
+    padding: 10px;
+    font-weight: 300;
+    width: 60%;
+    margin: 0 auto 30px;
+
+}
+.calculadora input {
+    text-align: center;
+    padding: 8px 0;
+}
+#calcular{
+    width: 300px;
+    margin: 15px auto;
+    border:1px solid #9f1f63;
+    color: #9f1f63;
+    cursor: pointer;
+    background: white;
+    padding: 10px 50px;
+    font-size: 23px;
+    transition: 0.3s ease-in-out;
+    box-shadow: none;
+    display: block;   
+}
+#calcular:hover{
+    background: #9f1f63;
+    color: white;
+}
+
+.categoria{
+    border: 1px solid #e3e3e3;
+    width: 31.3%;
+    box-sizing: border-box;
+    margin: 0 1%;
+    height: 300px;
+    padding: 20px 0;
+    float: left;
+    display: block;
+    text-align: center;
+    -webkit-box-shadow: 7px 7px 68px 0px rgba(148,148,148,0.37);
+    -moz-box-shadow: 7px 7px 68px 0px rgba(148,148,148,0.37);
+    box-shadow: 7px 7px 68px 0px rgba(148,148,148,0.37);
+}    
+
+#tiempo_r .form-control{
+    width: 29%;
+    margin: 0 2%;
+    float: left;
+}
+
+.form-control input{
+    width: 100%;
+    color: #9f1f63;
+} 
+
+.form-control input:focus{
+    outline: none;
+} 
+
+#ritmo_r .form-control{
+    width: 46%;
+    margin: 0 2%;
+    float: left;
+}
+
+
+
+#distancia_r  .form-control{
+    width: 46%;
+    margin: 0 2%;
+    float: left;
+}
+
+
+#distancia_r .form-control input{
+    width: 100%;
+} 
