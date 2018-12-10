@@ -1,6 +1,18 @@
 var tiempo, ritmo, distancia
 var btnCalcular = document.getElementById('calcular')
 
+
+const creaFecha = (minutos, segundos) => {
+    let total = new Date(1970, 0, 1)
+    if(minutos){
+        total.setMinutes(minutos)
+    }
+    if(segundos){
+        total.setSeconds(segundos)
+    }
+    return total;
+}
+
 const actualizaValores = () => {
 // Actualiza los valores ingresados en el formulario
 
@@ -12,10 +24,7 @@ const actualizaValores = () => {
         // segundosPorKm:   (parseInt(document.getElementById('segundos_vel').value) / 60), 
         
         calcularTotalRitmo(){
-            let total = new Date(1970, 0, 1)
-            total.setMinutes( this.minutos)
-            total.setSeconds( this.segundos)
-            return total;
+            return creaFecha( this.minutos, this.segundos)
         }
        
     }
@@ -58,14 +67,19 @@ const actualizaValores = () => {
     const calculaDistancia = () => {
         let minutos = (tiempo.calculaTotal().getHours() * 60) + tiempo.calculaTotal().getMinutes() + (tiempo.calculaTotal().getSeconds() / 100)
         let ritmoxMinutos = ritmo.calcularTotalRitmo().getMinutes() +  ( ritmo.calcularTotalRitmo().getSeconds() / 60)
-        alert( 'La distancia es de ' + minutos / ritmoxMinutos + 'Kilometros' )
+        // alert( 'La distancia es de ' + minutos / ritmoxMinutos + 'Kilometros' )
+        // document.getElementById('km_r_d').innerHTML(minutos / ritmoxMinutos)  
+        document.getElementById('km_r_d').value = Math.floor(minutos / ritmoxMinutos)
+        document.getElementById('mm_r_d').value = minutos / ritmoxMinutos - Math.floor(minutos / ritmoxMinutos)
     }
     const calculaRitmo = () => {
         let minutos = (tiempo.calculaTotal().getHours() * 60) + tiempo.calculaTotal().getMinutes() + (tiempo.calculaTotal().getSeconds() / 60)
         alert( 'el ritmo es de ' + minutos / distancia.kilometros + ' minutos por kilometro' )
+        // document.getElementById('minutos_vel').value  = Math.floor(minutos / distancia.kilometro) 
     }
     const calculaTiempo = () => {
-        alert( 'el tiempo es de ' + ritmo.calcularTotalRitmo().getMinutes() / distancia.kilometros   + ' minutos ' )
+        alert( 'el tiempo es de ' + ritmo.calcularTotalRitmo().getMinutes() * distancia.kilometros   + ' minutos ' )
+        document.getElementById('minutos_r_t').value = ritmo.calcularTotalRitmo().getMinutes() * distancia.kilometros
     }
 
 
