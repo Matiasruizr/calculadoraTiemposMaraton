@@ -34,77 +34,75 @@ const getRatioDistancia = () => {
     return distance
 }
 
-    const actualizaValores = () => {
-    // Actualiza los valores ingresados en el formulario
+const actualizaValores = () => {
+// Actualiza los valores ingresados en el formulario
 
-        // Ritmo
-        ritmo = {
-            segundos: document.getElementById('segundos_vel').value, 
-            minutos: document.getElementById('minutos_vel').value,
+    // Ritmo
+    ritmo = {
+        segundos: document.getElementById('segundos_vel').value, 
+        minutos: document.getElementById('minutos_vel').value,
 
-            calcularTotalRitmo(){
-                return creaFecha( this.minutos, this.segundos)
+        calcularTotalRitmo(){
+            return creaFecha( this.minutos, this.segundos)
+        }
+    }
+    
+    // Tiempo
+    tiempo = {
+        segundos: document.getElementById('segundos_r_t').value, 
+        minutos: document.getElementById('minutos_r_t').value,
+        horas: document.getElementById('horas_r_t').value,
+
+        calculaTotal(){
+            let horas = 0
+            if(this.horas){
+                horas = parseInt(this.horas * 3600)
             }
-        }
-        
-        // Tiempo
-        tiempo = {
-            segundos: document.getElementById('segundos_r_t').value, 
-            minutos: document.getElementById('minutos_r_t').value,
-            horas: document.getElementById('horas_r_t').value,
-
-            calculaTotal(){
-                let horas = 0
-                if(this.horas){
-                    horas = parseInt(this.horas * 3600)
-                }
-                let minutos = 0
-                if(this.minutos){
-                    minutos = parseInt(this.minutos * 60)
-                }
-                let segundos = 0
-                if(this.segundos){
-                    segundos = parseInt(this.segundos)
-                }
-
-                let total = new Date(1970, 0, 1)
-                total.setSeconds(horas + minutos + segundos)
-                return total
+            let minutos = 0
+            if(this.minutos){
+                minutos = parseInt(this.minutos * 60)
             }
-        }
+            let segundos = 0
+            if(this.segundos){
+                segundos = parseInt(this.segundos)
+            }
 
-        // Distancia= 
-        distancia = {
-            metros: getRatioDistancia()[1],
-            kilometros:  getRatioDistancia()[0]
+            let total = new Date(1970, 0, 1)
+            total.setSeconds(horas + minutos + segundos)
+            return total
         }
     }
-    const calculaRitmo = () => {
-        alert(distancia.kilometros)
-        let minutos = (tiempo.calculaTotal().getHours() * 60) + tiempo.calculaTotal().getMinutes() + (tiempo.calculaTotal().getSeconds() / 60)
-        alert( 'el ritmo es de ' + minutos / distancia.kilometros + ' minutos por kilometro' )
-        let imprMinutos  = (60 * (minutos / distancia.kilometros - Math.floor(minutos / distancia.kilometros)) ).toString()
-        // document.getElementById('minutos_vel').value  = Math.floor(minutos / distancia.kilometro) 
-        document.getElementById('minutos_vel').value =  Math.floor(minutos / distancia.kilometros)
-        document.getElementById('segundos_vel').value =  Math.floor(imprMinutos)
-        document.getElementById('divRitmo').className = 'categoria bgReverse'
-    }
-    const calculaDistancia = () => {
-        let minutos = (tiempo.calculaTotal().getHours() * 60) + tiempo.calculaTotal().getMinutes() + (tiempo.calculaTotal().getSeconds() / 100)
-        let ritmoxMinutos = ritmo.calcularTotalRitmo().getMinutes() +  ( ritmo.calcularTotalRitmo().getSeconds() / 60)
-        document.getElementById('km_r_d').value = Math.floor(minutos / ritmoxMinutos)
-        document.getElementById('mm_r_d').value = minutos / ritmoxMinutos - Math.floor(minutos / ritmoxMinutos)
-        document.getElementById('divDistancia').className = 'categoria bgReverse'
-        alert("Estoy calculando la distancia "+!distancia.kilometros )
 
+    // Distancia= 
+    distancia = {
+        metros: getRatioDistancia()[1],
+        kilometros:  getRatioDistancia()[0]
     }
- 
-    const calculaTiempo = () => {
-        errorMsj.innerHTML = ""
-        alert( 'el tiempo es de ' + ritmo.calcularTotalRitmo().getMinutes() * distancia.kilometros   + ' minutos ' )
-        document.getElementById('minutos_r_t').value = Math.floor(ritmo.calcularTotalRitmo().getMinutes() * distancia.kilometros) 
-        document.getElementById('divTiempo').className = 'categoria bgReverse'
-    }
+}
+
+const calculaRitmo = () => {
+    alert(distancia.kilometros)
+    let minutos = (tiempo.calculaTotal().getHours() * 60) + tiempo.calculaTotal().getMinutes() + (tiempo.calculaTotal().getSeconds() / 60)
+    alert( 'el ritmo es de ' + minutos / distancia.kilometros + ' minutos por kilometro' )
+    let imprMinutos  = (60 * (minutos / distancia.kilometros - Math.floor(minutos / distancia.kilometros)) ).toString()
+    document.getElementById('minutos_vel').value =  Math.floor(minutos / distancia.kilometros)
+    document.getElementById('segundos_vel').value =  Math.floor(imprMinutos)
+    document.getElementById('divRitmo').className = 'categoria bgReverse'
+}
+const calculaDistancia = () => {
+    let minutos = (tiempo.calculaTotal().getHours() * 60) + tiempo.calculaTotal().getMinutes() + (tiempo.calculaTotal().getSeconds() / 100)
+    let ritmoxMinutos = ritmo.calcularTotalRitmo().getMinutes() +  ( ritmo.calcularTotalRitmo().getSeconds() / 60)
+    document.getElementById('km_r_d').value = Math.floor(minutos / ritmoxMinutos)
+    document.getElementById('mm_r_d').value =  (minutos / ritmoxMinutos - Math.floor(minutos / ritmoxMinutos)).toFixed(3).substr(2, 5)
+    document.getElementById('divDistancia').className = 'categoria bgReverse'
+}
+
+const calculaTiempo = () => {
+    errorMsj.innerHTML = ""
+    alert( 'el tiempo es de ' + ritmo.calcularTotalRitmo().getMinutes() * distancia.kilometros   + ' minutos ' )
+    document.getElementById('minutos_r_t').value = Math.floor(ritmo.calcularTotalRitmo().getMinutes() * distancia.kilometros) 
+    document.getElementById('divTiempo').className = 'categoria bgReverse'
+}
 
 
 btnCalcular.onclick = function() {
@@ -112,7 +110,6 @@ btnCalcular.onclick = function() {
     console.log(`Minutos:   ${ritmo.minutos}  minutos    ${ritmo.segundos}  segundos`)
     console.log(`Tiempo:    ${tiempo.horas} horas ${tiempo.minutos} minutos    ${tiempo.segundos} segundos`)
     console.log(`Distancia: ${distancia.kilometros}   kilometros ${distancia.metros}   metros`)
-
 
     if(!distancia.kilometros && !tiempo.horas && !ritmo.minutos){
         errorMsj.innerHTML = "Debes ingresar 2 de 3 secciones para calcular la tercera"
