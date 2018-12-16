@@ -11,6 +11,12 @@
     font-weight: 400;
     color: #58585a;
 }
+.calculadora h5{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: #da0028;
+}
 #radios_distancia .form-control{
     width: 21%!important;
     float: left;
@@ -25,7 +31,9 @@
     color: #9f1f63!important;
 }
 .bgReverse .txt{
-    
+    color: white!important;
+}
+.bgReverse .form-control span small{
     color: white!important;
 }
 .calculadora h3{
@@ -42,8 +50,8 @@
     padding: 8px 0;
 }
 #calcular{
-    width: 300px;
-    margin: 15px auto;
+    width: 30%;
+    margin: 25px 35%;
     border:1px solid #9f1f63;
     color: #9f1f63;
     cursor: pointer;
