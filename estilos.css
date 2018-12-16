@@ -11,12 +11,29 @@
     font-weight: 400;
     color: #58585a;
 }
+#radios_distancia .form-control{
+    width: 21%!important;
+    float: left;
+}
+.bgReverse {
+    background: #9f1f63;
+}
+.bgReverse h3{
+    border:1px solid #9f1f63;
+    font-weight: 600!important;
+    background: white!important;
+    color: #9f1f63!important;
+}
+.bgReverse .txt{
+    
+    color: white!important;
+}
 .calculadora h3{
     background: #9f1f63;
     color: white;
     padding: 10px;
     font-weight: 300;
-    width: 60%;
+    width: 40%;
     margin: 0 auto 30px;
 
 }
@@ -41,6 +58,19 @@
     background: #9f1f63;
     color: white;
 }
+#borrarDatos{
+    width: 300px;
+    margin: 15px auto;
+    border:1px solid #9f1f63;
+    background: #9f1f63;
+    cursor: pointer;
+    color: white;
+    padding: 7.5px 50px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    box-shadow: none;
+    display: block;   
+}
 
 .categoria{
     border: 1px solid #e3e3e3;
@@ -49,6 +79,7 @@
     margin: 0 1%;
     height: 300px;
     padding: 20px 0;
+    transition: 0.3s ease-in-out;
     float: left;
     display: block;
     text-align: center;
@@ -90,3 +121,21 @@
 #distancia_r .form-control input{
     width: 100%;
 } 
+
+@media(max-width:768px){
+    .categoria{
+        border: 1px solid #e3e3e3;
+        width: 98%;
+        box-sizing: border-box;
+        margin: 15px 1%;
+        height: 300px;
+        padding: 20px 0;
+        transition: 0.3s ease-in-out;
+        float: left;
+        display: block;
+        text-align: center;
+        -webkit-box-shadow: 7px 7px 68px 0px rgba(148,148,148,0.37);
+        -moz-box-shadow: 7px 7px 68px 0px rgba(148,148,148,0.37);
+        box-shadow: 7px 7px 68px 0px rgba(148,148,148,0.37);
+    }   
+}

@@ -10,12 +10,30 @@
 <body>
     <div class="calculadora">
         <h2>¡Calcula tu distancia, tiempo o ritmo! <img src="http://www.virun.cl/wp-content/uploads/2016/01/LogoViRun_600x300.png"></h2>
-        <div class="categoria">
+        <div class="categoria" id="divDistancia">
             <h3>Distancia</h3>
             <div class="white_box">
                 
                 <div class=""></div>
                 <div class="form-group" id="distancia_r">	
+                        <div id="radios_distancia">
+							<div class="form-control variable_r">			                           
+	                            <input name="variable_r" value="5" id="5k_r" type="radio">
+	                            <label for="5k_r">5Km</label>
+	                        </div>
+							<div class="form-control variable_r">			                           
+	                            <input name="variable_r" value="10" id="10k_r" type="radio">
+	                            <label for="10k_r">10Km</label>
+	                        </div>
+							<div class="form-control variable_r">			                           
+	                            <input name="variable_r" value="21" id="21k_r" type="radio">
+	                            <label for="21k_r">1/2 Maratón</label>
+	                        </div>
+							<div class="form-control variable_r">			                           
+	                            <input name="variable_r" value="42" id="42k_r" type="radio">
+	                            <label for="42k_r">Maratón</label> 
+	                        </div>
+                        </div>
                     <div class="center-inline-block">
                         	
                         <div class="form-control">			                           
@@ -30,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="categoria">
+        <div class="categoria" id="divTiempo">
             <h3>Tiempo</h3>
             <div class="form-group" id="tiempo_r">	
                 <div class="center-inline-block">
@@ -51,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div class="categoria">
+        <div class="categoria" id="divRitmo">
             <h3>Ritmo</h3>
             <div class="form-group" id="ritmo_r">	
                 <div class="center-inline-block">
@@ -69,6 +87,7 @@
             </div>
         </div>
         <button id="calcular">Calcular </button>
+        <button id="borrarDatos">Borrar datos </button>
     </div>
   
     <script src="calculadora.js"></script>
